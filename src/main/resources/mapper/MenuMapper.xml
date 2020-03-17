@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.MenuMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Menu" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="menu_id" property="menuId" jdbcType="INTEGER" />
+    <result column="menu_name" property="menuName" jdbcType="VARCHAR" />
+    <result column="groups" property="groups" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

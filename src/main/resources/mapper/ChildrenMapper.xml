@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.bs.miniprm.mapper.ChildrenMapper">
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Children">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="child_id" jdbcType="INTEGER" property="childId" />
+    <result column="child_name" jdbcType="VARCHAR" property="childName" />
+    <result column="child_nav_name" jdbcType="VARCHAR" property="childNavName" />
+    <result column="child_image" jdbcType="VARCHAR" property="childImage" />
+    <result column="menu_id" jdbcType="INTEGER" property="menuId" />
+    <result column="menu_name" jdbcType="VARCHAR" property="menuName" />
+    <result column="group_id" jdbcType="INTEGER" property="groupId" />
+    <result column="group_name" jdbcType="VARCHAR" property="groupName" />
+  </resultMap>
+</mapper>
