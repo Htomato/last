@@ -1,9 +1,6 @@
 package com.bs.miniprm.controller;
 
-import com.bs.miniprm.pojo.Children;
 import com.bs.miniprm.pojo.Menu;
-import com.bs.miniprm.service.ChildrenService;
-import com.bs.miniprm.service.MenuService;
 import com.bs.miniprm.service.impl.MenuServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
