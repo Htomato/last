@@ -55,5 +55,12 @@ public class Menu {
         this.groups = groups;
     }
 
-
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "menuId=" + menuId +
+                ", menuName='" + menuName + '\'' +
+                ", groups='" + groups + '\'' +
+                '}';
+    }
 }
