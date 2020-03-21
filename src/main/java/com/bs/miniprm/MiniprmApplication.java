@@ -12,4 +12,5 @@ public class MiniprmApplication {
         SpringApplication.run(MiniprmApplication.class, args);
     }
 
+
 }
