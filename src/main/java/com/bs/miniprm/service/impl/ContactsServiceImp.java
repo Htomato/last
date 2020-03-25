@@ -24,8 +24,16 @@ public class ContactsServiceImp implements ContactsService {
     }
 
     @Override
-    public void addContact(Contacts contacts) {
-        contactsMapper.insert(contacts);
+    public int addContact(Contacts contacts) {
+        int insert = 0;
+        try {
+            insert = contactsMapper.insert(contacts);
+        } catch (Exception e) {
+            System.out.println("插入失败");
+        }finally {
+            return insert;
+        }
+
     }
 
 }

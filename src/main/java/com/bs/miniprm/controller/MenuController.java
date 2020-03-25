@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+/**
+ * @author 李宇超
+ */
 @RestController
 @RequestMapping("menu")
 public class MenuController {
@@ -19,7 +22,6 @@ public class MenuController {
     @RequestMapping("allMenu")
     public Object all(){
         List<Menu> menus = menuServiceImp.queryAllMenu();
-        System.out.println(menus);
         return menus;
     }
 }

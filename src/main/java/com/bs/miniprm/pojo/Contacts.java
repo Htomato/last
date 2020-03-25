@@ -148,4 +148,16 @@ public class Contacts {
     public void setContactTele(String contactTele) {
         this.contactTele = contactTele;
     }
+
+    @Override
+    public String toString() {
+        return "Contacts{" +
+                "contactId=" + contactId +
+                ", contactName='" + contactName + '\'' +
+                ", company='" + company + '\'' +
+                ", job='" + job + '\'' +
+                ", avatar='" + avatar + '\'' +
+                ", contactTele='" + contactTele + '\'' +
+                '}';
+    }
 }

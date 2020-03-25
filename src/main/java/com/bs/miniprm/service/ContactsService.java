@@ -18,6 +18,7 @@ public interface ContactsService {
     /**
      * 添加contact
      * @param contacts-联系人
+     * @return 返回添加是否成功的状态
      */
-    void addContact( Contacts contacts);
+    int addContact( Contacts contacts);
 }
