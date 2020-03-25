@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.ContactsMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Contacts" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="contact_id" property="contactId" jdbcType="INTEGER" />
+    <result column="contact_name" property="contactName" jdbcType="VARCHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="job" property="job" jdbcType="VARCHAR" />
+    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
+    <result column="contact_tele" property="contactTele" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>
