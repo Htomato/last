@@ -29,7 +29,7 @@ public class ContactsServiceImp implements ContactsService {
         try {
             insert = contactsMapper.insert(contacts);
         } catch (Exception e) {
-            System.out.println("插入失败");
+            e.printStackTrace();
         }finally {
             return insert;
         }

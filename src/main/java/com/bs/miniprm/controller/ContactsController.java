@@ -1,9 +1,10 @@
 package com.bs.miniprm.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bs.miniprm.pojo.Contacts;
 import com.bs.miniprm.service.impl.ContactsServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.web.bind.annotation.*;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -30,11 +31,15 @@ public class ContactsController {
         }
         return contacts;
     }
-    @RequestMapping(value = "add",method = RequestMethod.POST)
-    public void add(String dataStr){
-        System.out.println(dataStr);
-
-//        int addStatus = contactsServiceImp.addContact(contact);
-//        return addStatus;
+    @GetMapping("/add")
+    public int add(String data){
+        System.out.println(data);
+//      将JSON Str 转化成JSONObj
+        JSONObject contactJson = (JSONObject) JSON.parse(data);
+//      make the jsonObj to javaBean
+        Contacts contact = contactJson.toJavaObject(Contacts.class);
+        System.out.println(contact);
+        int addStatus = contactsServiceImp.addContact(contact);
+        return addStatus;
     }
 }
