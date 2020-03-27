@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.TrplanMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Trplan" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="trplan_id" property="trplanId" jdbcType="INTEGER" />
+    <result column="trOrg" property="trorg" jdbcType="VARCHAR" />
+    <result column="trPlanType" property="trplantype" jdbcType="VARCHAR" />
+    <result column="trPlanContent" property="trplancontent" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

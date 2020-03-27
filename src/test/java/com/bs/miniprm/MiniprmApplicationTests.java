@@ -2,8 +2,11 @@ package com.bs.miniprm;
 
 import com.bs.miniprm.mapper.ContactsMapper;
 import com.bs.miniprm.mapper.MenuMapper;
+import com.bs.miniprm.mapper.TrplanMapper;
 import com.bs.miniprm.pojo.Contacts;
 import com.bs.miniprm.pojo.Menu;
+import com.bs.miniprm.pojo.Trplan;
+import com.bs.miniprm.service.impl.TrplanServiceImp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,6 +20,15 @@ class MiniprmApplicationTests {
     private MenuMapper menuMapper;
     @Autowired
     private ContactsMapper contactsMapper;
+    @Autowired
+    private TrplanMapper trplanMapper;
+    @Autowired
+    private TrplanServiceImp trplanServiceImp;
+
+//    @Test
+//    public void queryAllTrplan(){
+//        trplanServiceImp.queryAllTrplan();
+//    }
 
     @Test
     void contextLoads() {
@@ -33,6 +45,13 @@ class MiniprmApplicationTests {
         List<Contacts> contacts = contactsMapper.selectAll();
         for (Contacts contact : contacts) {
             System.out.println("contact = " + contact);
+        }
+    }
+    @Test
+    public void queryAllTrplan(){
+        List<Trplan> trplans = trplanMapper.selectAll();
+        for (Trplan trplan : trplans) {
+            System.out.println("contact = " + trplan);
         }
     }
     @Test
