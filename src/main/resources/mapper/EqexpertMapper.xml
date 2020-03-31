@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.EqexpertMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Eqexpert" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="eqExpert_id" property="eqexpertId" jdbcType="INTEGER" />
+    <result column="eqExpert_name" property="eqexpertName" jdbcType="VARCHAR" />
+    <result column="eqExpert_company" property="eqexpertCompany" jdbcType="VARCHAR" />
+    <result column="eqExpert_last" property="eqexpertLast" jdbcType="INTEGER" />
+    <result column="eqExpert_befor" property="eqexpertBefor" jdbcType="INTEGER" />
+    <result column="eqExpert_domain" property="eqexpertDomain" jdbcType="VARCHAR" />
+    <result column="eqExpert_qua" property="eqexpertQua" jdbcType="VARCHAR" />
+    <result column="eqExpert_quaImage" property="eqexpertQuaimage" jdbcType="VARCHAR" />
+    <result column="eqExpert_detail" property="eqexpertDetail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>

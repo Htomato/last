@@ -1,12 +1,8 @@
 package com.bs.miniprm;
 
-import com.bs.miniprm.mapper.ContactsMapper;
-import com.bs.miniprm.mapper.MenuMapper;
-import com.bs.miniprm.mapper.TrplanMapper;
-import com.bs.miniprm.pojo.Contacts;
-import com.bs.miniprm.pojo.Menu;
-import com.bs.miniprm.pojo.Trplan;
-import com.bs.miniprm.service.impl.TrplanServiceImp;
+import com.bs.miniprm.mapper.*;
+import com.bs.miniprm.pojo.*;
+import com.bs.miniprm.service.impl.EqexpertServiceImp;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,7 +19,27 @@ class MiniprmApplicationTests {
     @Autowired
     private TrplanMapper trplanMapper;
     @Autowired
-    private TrplanServiceImp trplanServiceImp;
+    private TrmanMapper trmanMapper;
+    @Autowired
+    private EqexpertMapper eqexpertMapper;
+    @Autowired
+    private EqexpertServiceImp eqexpertServiceImp;
+
+    @Test
+    public void selectUnReview(){
+        List<Eqexpert> eqexperts = eqexpertServiceImp.queryUnReview();
+        for (Eqexpert eqexpert : eqexperts) {
+            System.out.println("eqexpert = " + eqexpert);
+        }
+    }
+    @Test
+    public void updateEqexpert(){
+        Eqexpert eqexpert = eqexpertServiceImp.selectById(1);
+        eqexpert.setEqexpertLast(2);
+        int i = eqexpertServiceImp.update(eqexpert);
+        System.out.println(i);
+    }
+
 
 //    @Test
 //    public void queryAllTrplan(){
@@ -38,6 +54,20 @@ class MiniprmApplicationTests {
         List<Menu> menus = menuMapper.selectAll();
         for (Menu menu : menus) {
             System.out.println(menu);
+        }
+    }
+    @Test
+    public void queryAllEqexpert(){
+        List<Eqexpert> eqexperts = eqexpertMapper.selectAll();
+        for (Eqexpert eqexpert : eqexperts) {
+            System.out.println("eqexpert = " + eqexpert);
+        }
+    }
+    @Test
+    public void queryAllTrMan(){
+        List<Trman> trmen = trmanMapper.selectAll();
+        for (Trman trman : trmen) {
+            System.out.println("trman = " + trman);
         }
     }
     @Test
