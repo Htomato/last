@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class TrplanServiceImp implements TrplanService {
+public class TrplanServiceImpl implements TrplanService {
     @Autowired
     private TrplanMapper trplanMapper;
 

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ContactsServiceImp implements ContactsService {
+public class ContactsServiceImpl implements ContactsService {
 
     @Autowired
     private ContactsMapper contactsMapper;

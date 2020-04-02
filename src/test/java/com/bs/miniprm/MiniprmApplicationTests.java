@@ -2,7 +2,7 @@ package com.bs.miniprm;
 
 import com.bs.miniprm.mapper.*;
 import com.bs.miniprm.pojo.*;
-import com.bs.miniprm.service.impl.EqexpertServiceImp;
+import com.bs.miniprm.service.impl.EqexpertServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,20 +23,20 @@ class MiniprmApplicationTests {
     @Autowired
     private EqexpertMapper eqexpertMapper;
     @Autowired
-    private EqexpertServiceImp eqexpertServiceImp;
+    private EqexpertServiceImpl eqexpertServiceImpl;
 
     @Test
     public void selectUnReview(){
-        List<Eqexpert> eqexperts = eqexpertServiceImp.queryUnReview();
+        List<Eqexpert> eqexperts = eqexpertServiceImpl.queryUnReview();
         for (Eqexpert eqexpert : eqexperts) {
             System.out.println("eqexpert = " + eqexpert);
         }
     }
     @Test
     public void updateEqexpert(){
-        Eqexpert eqexpert = eqexpertServiceImp.selectById(1);
+        Eqexpert eqexpert = eqexpertServiceImpl.selectById(1);
         eqexpert.setEqexpertLast(2);
-        int i = eqexpertServiceImp.update(eqexpert);
+        int i = eqexpertServiceImpl.update(eqexpert);
         System.out.println(i);
     }
 

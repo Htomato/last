@@ -1,9 +1,7 @@
 package com.bs.miniprm.controller;
 
 import com.bs.miniprm.pojo.Eqexpert;
-import com.bs.miniprm.pojo.Trman;
-import com.bs.miniprm.service.impl.EqexpertServiceImp;
-import com.bs.miniprm.service.impl.TrmanServiceImp;
+import com.bs.miniprm.service.impl.EqexpertServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,12 +17,12 @@ import java.util.List;
 public class EqexpertController {
 
     @Autowired
-    private EqexpertServiceImp eqexpertServiceImp;
+    private EqexpertServiceImpl eqexpertServiceImpl;
 
 
     @RequestMapping("allEqExpert")
     public Object all(){
-        List<Eqexpert> eqexperts = eqexpertServiceImp.queryAllEqExpert();
+        List<Eqexpert> eqexperts = eqexpertServiceImpl.queryAllEqExpert();
         System.out.println("hello allEqExpert");
         return eqexperts;
     }
@@ -35,8 +33,24 @@ public class EqexpertController {
      */
     @RequestMapping("review")
     public Object review(){
-        List<Eqexpert> eqexperts = eqexpertServiceImp.queryUnReview();
+        List<Eqexpert> eqexperts = eqexpertServiceImpl.queryUnReview();
         return eqexperts;
+    }
+
+    /**
+     *
+     * @param id
+     * @return 返回修改状态
+     */
+    @RequestMapping("changeStatus")
+    public int changeStatus(int id) {
+        System.out.println("changeStatus run...");
+        Eqexpert eqexpert = eqexpertServiceImpl.selectById(id);
+        System.out.println("eqexpert = " + eqexpert);
+        eqexpert.setEqexpertLast(1);
+        int update = eqexpertServiceImpl.update(eqexpert);
+        System.out.println("update = " + update);
+        return update;
     }
 
 }

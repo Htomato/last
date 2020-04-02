@@ -1,7 +1,7 @@
 package com.bs.miniprm.controller;
 
 import com.bs.miniprm.pojo.Trman;
-import com.bs.miniprm.service.impl.TrmanServiceImp;
+import com.bs.miniprm.service.impl.TrmanServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -17,12 +17,12 @@ import java.util.List;
 public class TrmanController {
 
     @Autowired
-    private TrmanServiceImp trmanServiceImp;
+    private TrmanServiceImpl trmanServiceImpl;
 
 
     @RequestMapping("allTrman")
     public Object all(){
-        List<Trman> trmen = trmanServiceImp.queryAllTrMan();
+        List<Trman> trmen = trmanServiceImpl.queryAllTrMan();
         System.out.println("hello allTrplan");
         return trmen;
     }

@@ -10,7 +10,7 @@ import tk.mybatis.mapper.entity.Example;
 import java.util.List;
 
 @Service
-public class EqexpertServiceImp implements EqexpertService {
+public class EqexpertServiceImpl implements EqexpertService {
     @Autowired
     private EqexpertMapper eqexpertMapper;
 
@@ -23,11 +23,9 @@ public class EqexpertServiceImp implements EqexpertService {
      */
     @Override
     public List<Eqexpert> queryUnReview() {
-        Example eqexpertExample = new Example(Eqexpert.class);
-        Example.Criteria criteria = eqexpertExample.createCriteria();
-        criteria.andEqualTo("eqexpertLast",0);
-        List<Eqexpert> eqexperts = eqexpertMapper.selectByExample(eqexpertExample);
-        return eqexperts;
+        Example eqexpertLast = new Example(Eqexpert.class);
+        eqexpertLast.createCriteria().andEqualTo("eqexpertLast", 0);
+        return eqexpertMapper.selectByExample(eqexpertLast);
     }
 
     @Override

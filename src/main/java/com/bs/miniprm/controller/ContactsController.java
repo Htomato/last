@@ -3,13 +3,11 @@ package com.bs.miniprm.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.bs.miniprm.pojo.Contacts;
-import com.bs.miniprm.service.impl.ContactsServiceImp;
+import com.bs.miniprm.service.impl.ContactsServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * @author 李宇超
@@ -20,12 +18,12 @@ import java.util.Map;
 public class ContactsController {
 
     @Autowired
-    private ContactsServiceImp contactsServiceImp;
+    private ContactsServiceImpl contactsServiceImpl;
 
 
     @RequestMapping("allContacts")
     public Object all(){
-        List<Contacts> contacts = contactsServiceImp.queryAllContacts();
+        List<Contacts> contacts = contactsServiceImpl.queryAllContacts();
         for (Contacts contact : contacts) {
             System.out.println("contact = " + contact);
         }
@@ -39,7 +37,7 @@ public class ContactsController {
 //      make the jsonObj to javaBean
         Contacts contact = contactJson.toJavaObject(Contacts.class);
         System.out.println(contact);
-        int addStatus = contactsServiceImp.addContact(contact);
+        int addStatus = contactsServiceImpl.addContact(contact);
         return addStatus;
     }
 }

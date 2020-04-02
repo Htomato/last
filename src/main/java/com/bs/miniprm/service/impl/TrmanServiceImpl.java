@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class TrmanServiceImp implements TrmanService {
+public class TrmanServiceImpl implements TrmanService {
     @Autowired
     private TrmanMapper trmanMapper;
 

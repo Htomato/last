@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.TraorgMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Traorg" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="traOrg_id" property="traorgId" jdbcType="INTEGER" />
+    <result column="traOrg_name" property="traorgName" jdbcType="VARCHAR" />
+    <result column="traOrg_head" property="traorgHead" jdbcType="VARCHAR" />
+    <result column="traOrg_headTele" property="traorgHeadtele" jdbcType="VARCHAR" />
+    <result column="traOrg_Type" property="traorgType" jdbcType="VARCHAR" />
+    <result column="traOrg_status" property="traorgStatus" jdbcType="INTEGER" />
+    <result column="traOrg_quaImg" property="traorgQuaimg" jdbcType="VARCHAR" />
+    <result column="traOrg_detail" property="traorgDetail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+</mapper>
