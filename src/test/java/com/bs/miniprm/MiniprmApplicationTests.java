@@ -3,6 +3,7 @@ package com.bs.miniprm;
 import com.bs.miniprm.mapper.*;
 import com.bs.miniprm.pojo.*;
 import com.bs.miniprm.service.impl.EqexpertServiceImpl;
+import com.bs.miniprm.service.impl.TraorgServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +25,18 @@ class MiniprmApplicationTests {
     private EqexpertMapper eqexpertMapper;
     @Autowired
     private EqexpertServiceImpl eqexpertServiceImpl;
+    @Autowired
+    private TraorgServiceImpl traorgServiceimpl;
+
+    @Test
+    public void selectUnReviewTraorg(){
+        List<Traorg> traorgs = traorgServiceimpl.queryUnReview();
+        for (Traorg traorg : traorgs) {
+            traorg.setTraorgStatus(1);
+            traorgServiceimpl.update(traorg);
+            System.out.println("traorg = " + traorg);
+        }
+    }
 
     @Test
     public void selectUnReview(){

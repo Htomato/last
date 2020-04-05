@@ -196,4 +196,18 @@ public class Traorg {
     public void setTraorgDetail(String traorgDetail) {
         this.traorgDetail = traorgDetail;
     }
+
+    @Override
+    public String toString() {
+        return "Traorg{" +
+                "traorgId=" + traorgId +
+                ", traorgName='" + traorgName + '\'' +
+                ", traorgHead='" + traorgHead + '\'' +
+                ", traorgHeadtele='" + traorgHeadtele + '\'' +
+                ", traorgType='" + traorgType + '\'' +
+                ", traorgStatus=" + traorgStatus +
+                ", traorgQuaimg='" + traorgQuaimg + '\'' +
+                ", traorgDetail='" + traorgDetail + '\'' +
+                '}';
+    }
 }
