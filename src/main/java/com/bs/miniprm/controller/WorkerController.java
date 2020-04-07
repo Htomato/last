@@ -27,7 +27,7 @@ public class WorkerController {
         return inspectors;
     }
 
-    @RequestMapping("allEqtech")
+    @RequestMapping("allEqTech")
     public Object allEqtech(){
         List<Worker> eqtech = workerServiceImpl.queryAllEqtech();
         return eqtech;

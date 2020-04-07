@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.CarMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Car" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="car_id" property="carId" jdbcType="INTEGER" />
+    <result column="head_company" property="headCompany" jdbcType="VARCHAR" />
+    <result column="head_name" property="headName" jdbcType="VARCHAR" />
+    <result column="head_card" property="headCard" jdbcType="VARCHAR" />
+    <result column="head_tele" property="headTele" jdbcType="VARCHAR" />
+    <result column="car_company" property="carCompany" jdbcType="VARCHAR" />
+    <result column="car_licensePlate" property="carLicenseplate" jdbcType="VARCHAR" />
+    <result column="car_licensePlateStatus" property="carLicenseplatestatus" jdbcType="INTEGER" />
+    <result column="car_category" property="carCategory" jdbcType="VARCHAR" />
+    <result column="car_brand" property="carBrand" jdbcType="VARCHAR" />
+    <result column="car_model" property="carModel" jdbcType="VARCHAR" />
+    <result column="car_source" property="carSource" jdbcType="VARCHAR" />
+    <result column="car_review" property="carReview" jdbcType="INTEGER" />
+    <result column="review" property="review" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>
