@@ -4,6 +4,7 @@ import com.bs.miniprm.mapper.*;
 import com.bs.miniprm.pojo.*;
 import com.bs.miniprm.service.impl.EqexpertServiceImpl;
 import com.bs.miniprm.service.impl.TraorgServiceImpl;
+import com.bs.miniprm.service.impl.WorkerServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +28,17 @@ class MiniprmApplicationTests {
     private EqexpertServiceImpl eqexpertServiceImpl;
     @Autowired
     private TraorgServiceImpl traorgServiceimpl;
+    @Autowired
+    private WorkerServiceImpl workerServiceImpl;
+
+
+    @Test
+    public void queryAllInspectors(){
+        List<Worker> workers = workerServiceImpl.queryAllEqtech();
+        for (Worker worker : workers) {
+            System.out.println("worker = " + worker);
+        }
+    }
 
     @Test
     public void selectUnReviewTraorg(){
