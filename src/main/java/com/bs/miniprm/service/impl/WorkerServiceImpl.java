@@ -33,4 +33,9 @@ public class WorkerServiceImpl implements WorkerService {
         EqtechExample.createCriteria().andEqualTo("workerJob","装备技师");
         return workerMapper.selectByExample(EqtechExample);
     }
+
+    @Override
+    public int update(Worker worker) {
+        return 0;
+    }
 }

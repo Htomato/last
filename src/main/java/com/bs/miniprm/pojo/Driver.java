@@ -4,6 +4,9 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import java.util.Date;
 
+/**
+ * @author 李宇超
+ */
 public class Driver {
     /**
      * 驾驶员编号
@@ -316,5 +319,24 @@ public class Driver {
      */
     public void setLicenseDeduction(Integer licenseDeduction) {
         this.licenseDeduction = licenseDeduction;
+    }
+
+    @Override
+    public String toString() {
+        return "Driver{" +
+                "driverId=" + driverId +
+                ", driverName='" + driverName + '\'' +
+                ", driverAge=" + driverAge +
+                ", driverCompany='" + driverCompany + '\'' +
+                ", driverApplydate=" + driverApplydate +
+                ", driverFirstdate=" + driverFirstdate +
+                ", driverLastdate=" + driverLastdate +
+                ", licenseNumber='" + licenseNumber + '\'' +
+                ", licenseType='" + licenseType + '\'' +
+                ", licenseScore=" + licenseScore +
+                ", licenseStatus=" + licenseStatus +
+                ", licenseViorecord='" + licenseViorecord + '\'' +
+                ", licenseDeduction=" + licenseDeduction +
+                '}';
     }
 }

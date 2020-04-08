@@ -3,6 +3,9 @@ package com.bs.miniprm.pojo;
 import javax.persistence.Column;
 import javax.persistence.Id;
 
+/**
+ * @author 李宇超
+ */
 public class Car {
     /**
      * 车辆编号
@@ -338,5 +341,25 @@ public class Car {
      */
     public void setReview(Integer review) {
         this.review = review;
+    }
+
+    @Override
+    public String toString() {
+        return "Car{" +
+                "carId=" + carId +
+                ", headCompany='" + headCompany + '\'' +
+                ", headName='" + headName + '\'' +
+                ", headCard='" + headCard + '\'' +
+                ", headTele='" + headTele + '\'' +
+                ", carCompany='" + carCompany + '\'' +
+                ", carLicenseplate='" + carLicenseplate + '\'' +
+                ", carLicenseplatestatus=" + carLicenseplatestatus +
+                ", carCategory='" + carCategory + '\'' +
+                ", carBrand='" + carBrand + '\'' +
+                ", carModel='" + carModel + '\'' +
+                ", carSource='" + carSource + '\'' +
+                ", carReview=" + carReview +
+                ", review=" + review +
+                '}';
     }
 }

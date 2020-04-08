@@ -15,7 +15,7 @@ public interface EqexpertService {
     List<Eqexpert> queryAllEqExpert();
 
     /**
-     *
+     * 查询所有未经审查的装备专家
      * @return 今年未经过审查的装备专家
      */
     List<Eqexpert> queryUnReview();
