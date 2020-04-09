@@ -44,7 +44,6 @@ public class EqexpertController {
      */
     @RequestMapping("changeStatus")
     public int changeStatus(int id) {
-        System.out.println("changeStatus run...");
         Eqexpert eqexpert = eqexpertServiceImpl.selectById(id);
         System.out.println("eqexpert = " + eqexpert);
         eqexpert.setEqexpertLast(1);

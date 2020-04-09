@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.FirelicenseMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Firelicense" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="firelicense_id" property="id" jdbcType="INTEGER" />
+    <result column="firelicense_number" property="number" jdbcType="VARCHAR" />
+  </resultMap>
+</mapper>

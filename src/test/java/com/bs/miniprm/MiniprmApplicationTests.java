@@ -2,13 +2,12 @@ package com.bs.miniprm;
 
 import com.bs.miniprm.mapper.*;
 import com.bs.miniprm.pojo.*;
-import com.bs.miniprm.service.impl.EqexpertServiceImpl;
-import com.bs.miniprm.service.impl.TraorgServiceImpl;
-import com.bs.miniprm.service.impl.WorkerServiceImpl;
+import com.bs.miniprm.service.impl.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootTest
@@ -30,6 +29,44 @@ class MiniprmApplicationTests {
     private TraorgServiceImpl traorgServiceimpl;
     @Autowired
     private WorkerServiceImpl workerServiceImpl;
+
+    @Autowired
+    private CarServiceImpl carServiceImpl;
+    @Autowired
+    private FirelicenseServiceImpl firelicenseServiceImpl;
+    @Autowired
+    private AdminlicenseServiceImpl adminlicenseServiceImpl;
+
+    @Test
+    public void allLicense(){
+        List<Firelicense> firelicenses = firelicenseServiceImpl.queryAll();
+        List<Adminlicense> adminlicenses = adminlicenseServiceImpl.queryAll();
+        List<Object> allLicense = new ArrayList<>();
+        allLicense.addAll(firelicenses);
+        allLicense.addAll(adminlicenses);
+        for (Object o : allLicense) {
+            System.out.println("o = " + o);
+        }
+
+    }
+
+
+    @Test
+    public void addCar(){
+        Car car = new Car();
+        car.setHeadName("1");
+        car.setHeadTele("1");
+        car.setHeadCompany("1");
+        car.setHeadCard("1");
+        car.setCarCompany("1");
+        car.setCarBrand("1");
+        car.setCarModel("1");
+        car.setCarCategory("消防车");
+        car.setCarSource("购买");
+        car.setCarLicenseplatestatus(0);
+        carServiceImpl.add(car);
+
+    }
 
 
     @Test
