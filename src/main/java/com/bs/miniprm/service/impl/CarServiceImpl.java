@@ -25,6 +25,8 @@ public class CarServiceImpl implements CarService {
         return cars;
     }
 
+
+
     @Override
     public List<Car> queryAllAdmin() {
         Example adminExample = new Example(Car.class);
@@ -42,6 +44,14 @@ public class CarServiceImpl implements CarService {
     public List<Car> queryNew() {
         Example carExample = new Example(Car.class);
         carExample.createCriteria().andEqualTo("carLicenseplatestatus",0);
+        List<Car> cars = carMapper.selectByExample(carExample);
+        return cars;
+    }
+
+    @Override
+    public List<Car> queryChanged() {
+        Example carExample = new Example(Car.class);
+        carExample.createCriteria().andEqualTo("carLicenseplatestatus",2);
         List<Car> cars = carMapper.selectByExample(carExample);
         return cars;
     }

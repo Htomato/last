@@ -34,6 +34,13 @@ public interface CarService {
     List<Car> queryNew();
 
     /**
+     * 查询所有更改过车牌的车辆
+     * @return
+     */
+    List<Car> queryChanged();
+
+
+    /**
      * 更改车辆属性
      * @param car 更改后的车辆属性
      * @return 结果码 0失败 1成功

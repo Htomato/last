@@ -1,11 +1,7 @@
 package com.bs.miniprm.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
+import javax.persistence.*;
 
-/**
- * @author 李宇超
- */
 public class Car {
     /**
      * 车辆编号
@@ -49,6 +45,12 @@ public class Car {
      */
     @Column(name = "car_licensePlate")
     private String carLicenseplate;
+
+    /**
+     * 旧车牌：应用于车牌有变更的
+     */
+    @Column(name = "car_licensePlateOld")
+    private String carLicenseplateold;
 
     /**
      * 车牌状态
@@ -218,6 +220,24 @@ public class Car {
     }
 
     /**
+     * 获取旧车牌：应用于车牌有变更的
+     *
+     * @return car_licensePlateOld - 旧车牌：应用于车牌有变更的
+     */
+    public String getCarLicenseplateold() {
+        return carLicenseplateold;
+    }
+
+    /**
+     * 设置旧车牌：应用于车牌有变更的
+     *
+     * @param carLicenseplateold 旧车牌：应用于车牌有变更的
+     */
+    public void setCarLicenseplateold(String carLicenseplateold) {
+        this.carLicenseplateold = carLicenseplateold;
+    }
+
+    /**
      * 获取车牌状态
      *
      * @return car_licensePlateStatus - 车牌状态
@@ -341,25 +361,5 @@ public class Car {
      */
     public void setReview(Integer review) {
         this.review = review;
-    }
-
-    @Override
-    public String toString() {
-        return "Car{" +
-                "carId=" + carId +
-                ", headCompany='" + headCompany + '\'' +
-                ", headName='" + headName + '\'' +
-                ", headCard='" + headCard + '\'' +
-                ", headTele='" + headTele + '\'' +
-                ", carCompany='" + carCompany + '\'' +
-                ", carLicenseplate='" + carLicenseplate + '\'' +
-                ", carLicenseplatestatus=" + carLicenseplatestatus +
-                ", carCategory='" + carCategory + '\'' +
-                ", carBrand='" + carBrand + '\'' +
-                ", carModel='" + carModel + '\'' +
-                ", carSource='" + carSource + '\'' +
-                ", carReview=" + carReview +
-                ", review=" + review +
-                '}';
     }
 }

@@ -12,6 +12,7 @@
     <result column="head_tele" property="headTele" jdbcType="VARCHAR" />
     <result column="car_company" property="carCompany" jdbcType="VARCHAR" />
     <result column="car_licensePlate" property="carLicenseplate" jdbcType="VARCHAR" />
+    <result column="car_licensePlateOld" property="carLicenseplateold" jdbcType="VARCHAR" />
     <result column="car_licensePlateStatus" property="carLicenseplatestatus" jdbcType="INTEGER" />
     <result column="car_category" property="carCategory" jdbcType="VARCHAR" />
     <result column="car_brand" property="carBrand" jdbcType="VARCHAR" />
