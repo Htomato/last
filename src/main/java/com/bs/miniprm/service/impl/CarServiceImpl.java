@@ -69,4 +69,36 @@ public class CarServiceImpl implements CarService {
         return i;
     }
 
+    @Override
+    public List<Car> queryCarReview() {
+        Example carExample = new Example(Car.class);
+        carExample.createCriteria().andEqualTo("carReview",0);
+        List<Car> cars = carMapper.selectByExample(carExample);
+        return cars;
+    }
+
+    @Override
+    public int changeCarReview(int id) {
+        Car car = carMapper.selectByPrimaryKey(id);
+        car.setCarReview(1);
+        int i = carMapper.updateByPrimaryKeySelective(car);
+        return i;
+    }
+
+    @Override
+    public List<Car> queryReview() {
+        Example carExample = new Example(Car.class);
+        carExample.createCriteria().andEqualTo("review",0);
+        List<Car> cars = carMapper.selectByExample(carExample);
+        return cars;
+    }
+
+    @Override
+    public int changeReview(int id) {
+        Car car = carMapper.selectByPrimaryKey(id);
+        car.setReview(1);
+        int i = carMapper.updateByPrimaryKeySelective(car);
+        return i;
+    }
+
 }

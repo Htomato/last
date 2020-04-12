@@ -48,6 +48,8 @@ public class CarController {
     public int addCar(String data){
         JSONObject CarJSON = (JSONObject) JSON.parse(data);
         Car car = CarJSON.toJavaObject(Car.class);
+        car.setReview(0);
+        car.setCarReview(0);
         int add = carServiceImpl.add(car);
         return add;
     }
@@ -66,6 +68,12 @@ public class CarController {
         allLicense.addAll(adminlicenses);
         return allLicense;
     }
+
+    /**
+     * 给新增的车辆上车牌
+     * @param id 新增车辆 id
+     * @return 更改的结果码 1成功 0 失败
+     */
     @RequestMapping("changeStatus")
     public int changeStatus(int id){
         Car car = carServiceImpl.queryById(id);
@@ -120,11 +128,47 @@ public class CarController {
 
     }
 
+    /**
+     * 查询更改过车牌号的车辆
+     * @return
+     */
     @RequestMapping("changeCarList")
     public Object changeCarList(){
         List<Car> cars = carServiceImpl.queryChanged();
         return cars;
     }
+
+    /**
+     * 查询未经车辆年审的车辆
+     * @return
+     */
+    @RequestMapping("revCar")
+    public Object revCar(){
+        List<Car> cars = carServiceImpl.queryCarReview();
+        return cars;
+    }
+    @RequestMapping("changeRevCar")
+    public int changeRevCar(int id){
+        return carServiceImpl.changeCarReview(id);
+    }
+
+    /**
+     * 查询未经主管单位年审的车辆
+     * @return
+     */
+    @RequestMapping("headRev")
+    public Object headRev(){
+        List<Car> cars = carServiceImpl.queryReview();
+        return cars;
+    }
+
+    @RequestMapping("changeHeadRev")
+    public int changeHeadRev(int id){
+        return carServiceImpl.changeReview(id);
+    }
+
+
+
 
 
 

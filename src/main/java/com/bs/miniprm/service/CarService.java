@@ -54,6 +54,31 @@ public interface CarService {
      */
     int add(Car car);
 
+    /**
+     * 查询所有未经车辆年审的车辆
+     * @return 未经车辆年审的车辆
+     */
+    List<Car> queryCarReview();
+
+    /**
+     * 更改车辆年审状态
+     * @return 更改结果码
+     */
+    int changeCarReview(int id);
+
+    /**
+     * 查询所有未经主管单位年审的车辆
+     * @return 未经主管单位年审的车辆
+     */
+    List<Car> queryReview();
+
+    /**
+     * 更改车辆 主管单位年审状态
+     * @return 更改的结果码
+     */
+    int changeReview(int id);
+
+
 
 
 

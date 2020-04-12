@@ -1,8 +1,14 @@
 package com.bs.miniprm.pojo;
 
+import com.bs.miniprm.utils.DateUtil;
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.Column;
 import javax.persistence.Id;
+import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static com.bs.miniprm.utils.DateUtil.ISO_EXPANDED_DATE_FORMAT;
 
 /**
  * @author 李宇超
@@ -36,18 +42,21 @@ public class Driver {
     /**
      * 驾驶员申请时间
      */
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyyMMdd")
     @Column(name = "driver_applyDate")
     private Date driverApplydate;
 
     /**
      * 驾驶员初次领证时间
      */
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyyMMdd")
     @Column(name = "driver_firstDate")
     private Date driverFirstdate;
 
     /**
      * 驾驶证到期时间
      */
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyyMMdd")
     @Column(name = "driver_lastDate")
     private Date driverLastdate;
 
