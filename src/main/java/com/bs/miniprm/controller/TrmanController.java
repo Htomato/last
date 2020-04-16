@@ -27,4 +27,9 @@ public class TrmanController {
         return trmen;
     }
 
+    @RequestMapping("selector")
+    public List<Trman> select(Integer number,String name){
+        return trmanServiceImpl.selector(number,name);
+    }
+
 }

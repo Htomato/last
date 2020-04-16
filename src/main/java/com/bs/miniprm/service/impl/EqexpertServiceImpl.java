@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -24,7 +25,7 @@ public class EqexpertServiceImpl implements EqexpertService {
     @Override
     public List<Eqexpert> queryUnReview() {
         Example eqexpertLast = new Example(Eqexpert.class);
-        eqexpertLast.createCriteria().andEqualTo("eqexpertLast", 0);
+        eqexpertLast.createCriteria().andNotEqualTo("eqexpertLast",1);
         return eqexpertMapper.selectByExample(eqexpertLast);
     }
 
@@ -35,8 +36,27 @@ public class EqexpertServiceImpl implements EqexpertService {
     }
 
     @Override
+    public int add(Eqexpert eqexpert) {
+        return eqexpertMapper.insert(eqexpert);
+    }
+
+    @Override
     public int update(Eqexpert eqexpert) {
         return eqexpertMapper.updateByPrimaryKeySelective(eqexpert);
+    }
+
+    @Override
+    public List<Eqexpert> selector(Integer number, String name) {
+        if (number != null){
+            List<Eqexpert> eqexpertList = new ArrayList<>();
+            Eqexpert eqexpert = eqexpertMapper.selectByPrimaryKey(number);
+            eqexpertList.add(eqexpert);
+            return eqexpertList;
+        }else {
+            Example eqexpertExample = new Example(Eqexpert.class);
+            eqexpertExample.createCriteria().andEqualTo("eqexpertName",name);
+            return eqexpertMapper.selectByExample(eqexpertExample);
+        }
     }
 
 

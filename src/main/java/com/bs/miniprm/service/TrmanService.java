@@ -13,4 +13,12 @@ public interface TrmanService {
      * @return 培训方案对象放入List
      */
     List<Trman> queryAllTrMan();
+
+    /**
+     * 条件查询
+     * @param number
+     * @param name
+     * @return
+     */
+    List<Trman> selector(Integer number,String name);
 }

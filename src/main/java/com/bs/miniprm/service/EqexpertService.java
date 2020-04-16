@@ -28,9 +28,24 @@ public interface EqexpertService {
     Eqexpert selectById(int id);
 
     /**
+     * 添加装备专家
+     * @param eqexpert
+     * @return
+     */
+    int add(Eqexpert eqexpert);
+
+    /**
      * 更新eqexpert中有修改的部分，其他不变。
      * @param eqexpert 更新后的对象
      * @return  操作状态。0失败 1成功
      */
     int update(Eqexpert eqexpert);
+
+    /**
+     * 条件查询
+     * @param number
+     * @param name
+     * @return
+     */
+    List<Eqexpert> selector(Integer number,String name);
 }

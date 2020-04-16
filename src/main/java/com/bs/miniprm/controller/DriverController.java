@@ -1,8 +1,10 @@
 package com.bs.miniprm.controller;
 
 import com.bs.miniprm.pojo.Driver;
+import com.bs.miniprm.pojo.License;
 import com.bs.miniprm.service.impl.DriverServiceImpl;
 
+import com.bs.miniprm.service.impl.LicenseServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,6 +21,8 @@ public class DriverController {
 
     @Autowired
     private DriverServiceImpl driverServiceImpl;
+    @Autowired
+    private LicenseServiceImpl licenseServiceImpl;
 
 
     @RequestMapping("all")
@@ -42,8 +46,27 @@ public class DriverController {
         lastDate.setYear(lastDate.getYear()+2);
         driver.setDriverLastdate(lastDate);
         driver.setLicenseScore(12);
-        driver.setLicenseNumber("430101753216");
+        License license = licenseServiceImpl.queryOne();
+        driver.setLicenseNumber(license.getLicenseNumber().toString());
+        licenseServiceImpl.delete(license);
         return driverServiceImpl.update(driver);
     }
 
+    @RequestMapping("normal")
+    public Object normal(){
+        List<Driver> normal = driverServiceImpl.normal();
+        return normal;
+    }
+
+    @RequestMapping("detail")
+    public Object detail(int id){
+        Driver driver = driverServiceImpl.queryById(id);
+        return driver;
+    }
+
+    @RequestMapping("vioRecord")
+    public Object vioRecord(){
+        List<Driver> drivers = driverServiceImpl.vioRecord();
+        return drivers;
+    }
 }

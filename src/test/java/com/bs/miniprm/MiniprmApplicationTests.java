@@ -6,6 +6,7 @@ import com.bs.miniprm.service.impl.*;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -16,6 +17,18 @@ class MiniprmApplicationTests {
 
     @Autowired
     private DriverServiceImpl driverServiceImpl;
+
+    @Autowired
+    private ContactsServiceImpl contactsServiceImpl;
+
+    @Test
+    public void queryByName() {
+       String name = "张三";
+        List<Contacts> contacts = contactsServiceImpl.queryByName(name);
+        for (Contacts contact : contacts) {
+            System.out.println("contact = " + contact);
+        }
+    }
 
     @Test
     public void allDrivers(){

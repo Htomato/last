@@ -33,4 +33,25 @@ public interface TraorgService {
      * @return  操作状态。0失败 1成功
      */
     int update(Traorg traorg);
+    /**
+     * 条件查询
+     * @param number
+     * @param name
+     * @return
+     */
+    List<Traorg> selector(Integer number,String name);
+    /**
+     * 条件查询未审核培训机构
+     * @param number
+     * @param name
+     * @return
+     */
+    List<Traorg> selectorUnReview(Integer number,String name);
+
+    /**
+     * 添加培训机构
+     * @param traorg
+     * @return
+     */
+    int add(Traorg traorg);
 }

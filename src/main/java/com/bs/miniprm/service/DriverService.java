@@ -41,4 +41,16 @@ public interface DriverService {
      */
     int changeApply(int id);
 
+    /**
+     * 查看所有驾照正常的驾驶员信息
+     * @return
+     */
+    List<Driver> normal();
+
+    /**
+     * 查询有违章的驾驶员
+     * @return
+     */
+    List<Driver> vioRecord();
+
 }

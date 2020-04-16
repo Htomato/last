@@ -1,5 +1,7 @@
 package com.bs.miniprm.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bs.miniprm.pojo.Traorg;
 import com.bs.miniprm.service.impl.TraorgServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,29 @@ public class TraorgController {
         traorg.setTraorgStatus(1);
         int update = traorgServiceImpl.update(traorg);
         return update;
+    }
+    @RequestMapping("selector")
+    public List<Traorg> select(Integer number,String name){
+        return traorgServiceImpl.selector(number,name);
+    }
+
+    @RequestMapping("selectorUnReview")
+    public List<Traorg> selectorUnReview(Integer number,String name){
+        return traorgServiceImpl.selectorUnReview(number,name);
+    }
+
+    @RequestMapping("add")
+    public int addTrainingPlan(String data){
+        JSONObject traPlanJSON = (JSONObject) JSON.parse(data);
+        Traorg traorg = traPlanJSON.toJavaObject(Traorg.class);
+        traorg.setTraorgStatus(0);
+        int add = traorgServiceImpl.add(traorg);
+        return add;
+    }
+    @RequestMapping("one")
+    public Object queryById(int id){
+        Traorg traorg = traorgServiceImpl.selectById(id);
+        return traorg;
     }
 
 }

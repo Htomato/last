@@ -92,4 +92,16 @@ public class ContactsController {
             return "error";
         }
     }
+    @RequestMapping("delete")
+    public int delete(int id){
+        return contactsServiceImpl.delete(id);
+    }
+    @RequestMapping("search")
+    public Object search(String name){
+        List<Contacts> contacts = contactsServiceImpl.queryByName(name);
+        for (Contacts contact : contacts) {
+            System.out.println("contact = " + contact);
+        }
+        return contacts;
+    }
 }

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.bs.miniprm.mapper.OutcarMapper" >
+  <resultMap id="BaseResultMap" type="com.bs.miniprm.pojo.Outcar" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="outCar_id" property="outcarId" jdbcType="INTEGER" />
+    <result column="outCar_remarks" property="outcarRemarks" jdbcType="VARCHAR" />
+    <result column="outCar_driver" property="outcarDriver" jdbcType="VARCHAR" />
+    <result column="outCar_model" property="outcarModel" jdbcType="VARCHAR" />
+    <result column="outCar_license" property="outcarLicense" jdbcType="VARCHAR" />
+    <result column="outCar_inTime" property="outcarIntime" jdbcType="DATE" />
+    <result column="outCar_outTime" property="outcarOuttime" jdbcType="DATE" />
+    <result column="outCar_status" property="outcarStatus" jdbcType="INTEGER" />
+  </resultMap>
+</mapper>

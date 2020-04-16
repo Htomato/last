@@ -1,5 +1,7 @@
 package com.bs.miniprm.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bs.miniprm.pojo.Trplan;
 import com.bs.miniprm.service.impl.TrplanServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,8 +25,21 @@ public class TrplanController {
     @RequestMapping("allTrplan")
     public Object all(){
         List<Trplan> trplans = trplanServiceImpl.queryAllTrplan();
-        System.out.println("hello allTrplan");
         return trplans;
+    }
+    @RequestMapping("add")
+    public int addTrainingPlan(String data){
+        JSONObject traPlanJSON = (JSONObject) JSON.parse(data);
+        Trplan trplan = traPlanJSON.toJavaObject(Trplan.class);
+        int add = trplanServiceImpl.add(trplan);
+        return add;
+    }
+    @RequestMapping("selector")
+    public List<Trplan> select(Integer number,String name, String trplantype){
+        System.out.println("number = " + number);
+        System.out.println("name = " + name);
+        System.out.println("trplantype = " + trplantype);
+        return trplanServiceImpl.selector(number,name,trplantype);
     }
 
 }

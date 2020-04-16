@@ -50,4 +50,20 @@ public class DriverServiceImpl implements DriverService {
         return driverMapper.updateByPrimaryKeySelective(driver);
     }
 
+    @Override
+    public List<Driver> normal() {
+        Example driverExample = new Example(Driver.class);
+        driverExample.createCriteria().andEqualTo("licenseStatus",1);
+        List<Driver> drivers = driverMapper.selectByExample(driverExample);
+        return drivers;
+    }
+
+    @Override
+    public List<Driver> vioRecord() {
+        Example driverExample = new Example(Driver.class);
+        driverExample.createCriteria().andLessThan("licenseScore",12);
+        List<Driver> drivers = driverMapper.selectByExample(driverExample);
+        return drivers;
+    }
+
 }

@@ -21,4 +21,18 @@ public interface ContactsService {
      * @return 返回添加是否成功的状态
      */
     int addContact( Contacts contacts);
+
+    /**
+     * 根据id 删除联系人
+     * @param id
+     * @return
+     */
+    int delete(int id);
+
+    /**
+     * 根据姓名查找
+     * @param name
+     * @return
+     */
+    List<Contacts> queryByName(String name);
 }

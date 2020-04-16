@@ -10,4 +10,21 @@ public interface TrplanService {
      * @return 培训方案对象放入List
      */
     List<Trplan> queryAllTrplan();
+
+    /**
+     * 添加培训计划
+     * @param trplan
+     * @return
+     */
+    int add(Trplan trplan);
+
+    /**
+     * 条件查询
+     * @param number
+     * @param name
+     * @param trplantype
+     * @return
+     */
+    List<Trplan> selector(Integer number,String name,String trplantype);
+
 }

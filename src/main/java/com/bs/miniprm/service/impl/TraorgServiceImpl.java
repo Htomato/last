@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,7 +26,7 @@ public class TraorgServiceImpl implements TraorgService {
     @Override
     public List<Traorg> queryUnReview() {
         Example traorgExample = new Example(Traorg.class);
-        traorgExample.createCriteria().andEqualTo("traorgStatus", 0);
+        traorgExample.createCriteria().andNotEqualTo("traorgStatus", 1);
         return traorgMapper.selectByExample(traorgExample);
     }
 
@@ -38,6 +39,41 @@ public class TraorgServiceImpl implements TraorgService {
     @Override
     public int update(Traorg traorg) {
         return traorgMapper.updateByPrimaryKeySelective(traorg);
+    }
+
+    @Override
+    public List<Traorg> selector(Integer number, String name) {
+        if (number != null){
+            List<Traorg> traorgList = new ArrayList<>();
+            Traorg traorg = traorgMapper.selectByPrimaryKey(number);
+            traorgList.add(traorg);
+            return traorgList;
+        }else {
+            Example traorgExample = new Example(Traorg.class);
+            traorgExample.createCriteria().andEqualTo("traorgName",name);
+            return traorgMapper.selectByExample(traorgExample);
+        }
+    }
+
+    @Override
+    public List<Traorg> selectorUnReview(Integer number, String name) {
+        if (number != null){
+            List<Traorg> traorgList = new ArrayList<>();
+            Traorg traorg = traorgMapper.selectByPrimaryKey(number);
+            if (traorg.getTraorgStatus() != 1){
+                traorgList.add(traorg);
+            }
+            return traorgList;
+        }else {
+            Example traorgExample = new Example(Traorg.class);
+            traorgExample.createCriteria().andEqualTo("traorgName",name).andNotEqualTo("traorgStatus",1);
+            return traorgMapper.selectByExample(traorgExample);
+        }
+    }
+
+    @Override
+    public int add(Traorg traorg) {
+        return traorgMapper.insert(traorg);
     }
 
 }
