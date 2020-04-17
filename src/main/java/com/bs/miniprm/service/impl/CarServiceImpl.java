@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -101,4 +102,54 @@ public class CarServiceImpl implements CarService {
         return i;
     }
 
+    @Override
+    public List<Car> selectorFire(String carLicenseplate, String headName) {
+            Example carExample = new Example(Car.class);
+            if (carLicenseplate != ""){
+                carExample.createCriteria()
+                        .andEqualTo("carLicenseplate",carLicenseplate)
+                        .andEqualTo("carCategory","消防车");
+            }else {
+                carExample.createCriteria()
+                        .andEqualTo("headName",headName)
+                        .andEqualTo("carCategory","消防车");
+
+            }
+        List<Car> carList = carMapper.selectByExample(carExample);
+        return carList;
+
+    }
+
+    @Override
+    public List<Car> selectorAdmin(String carLicenseplate, String headName) {
+        Example carExample = new Example(Car.class);
+        if (carLicenseplate != ""){
+            carExample.createCriteria()
+                    .andEqualTo("carLicenseplate",carLicenseplate)
+                    .andEqualTo("carCategory","行政车");
+        }else {
+            carExample.createCriteria()
+                    .andEqualTo("headName",headName)
+                    .andEqualTo("carCategory","行政车");
+
+        }
+        List<Car> carList = carMapper.selectByExample(carExample);
+        return carList;
+    }
+
+    @Override
+    public List<Car> selectorChePai(String carBrand, String carCompany) {
+        Example carExample = new Example(Car.class);
+        if (carBrand != ""){
+            carExample.createCriteria()
+                    .andEqualTo("carBrand",carBrand)
+                    .andEqualTo("carLicenseplatestatus",0);
+        }else {
+            carExample.createCriteria()
+                    .andEqualTo("carCompany",carCompany)
+                    .andEqualTo("carLicenseplatestatus",0);
+        }
+        List<Car> carList = carMapper.selectByExample(carExample);
+        return carList;
+    }
 }

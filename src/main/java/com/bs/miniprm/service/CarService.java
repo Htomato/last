@@ -78,6 +78,30 @@ public interface CarService {
      */
     int changeReview(int id);
 
+    /**
+     * 条件查询消防车
+     * @param carLicenseplate
+     * @param headName
+     * @return
+     */
+    List<Car> selectorFire(String carLicenseplate,String headName);
+
+    /**
+     * 条件查询行政车
+     * @param carLicenseplate
+     * @param headName
+     * @return
+     */
+    List<Car> selectorAdmin(String carLicenseplate,String headName);
+
+    /**
+     * 车牌申请查询
+     * @param carBrand
+     * @param carCompany
+     * @return
+     */
+    List<Car> selectorChePai(String carBrand,String carCompany);
+
 
 
 

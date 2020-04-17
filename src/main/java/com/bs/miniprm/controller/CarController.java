@@ -161,10 +161,21 @@ public class CarController {
         List<Car> cars = carServiceImpl.queryReview();
         return cars;
     }
-
     @RequestMapping("changeHeadRev")
     public int changeHeadRev(int id){
         return carServiceImpl.changeReview(id);
+    }
+    @RequestMapping("selectorFire")
+    public List<Car> selectorFire(String carLicenseplate,String headName){
+        return carServiceImpl.selectorFire(carLicenseplate,headName);
+    }
+    @RequestMapping("selectorAdmin")
+    public List<Car> selectorAdmin(String carLicenseplate,String headName){
+        return carServiceImpl.selectorAdmin(carLicenseplate,headName);
+    }
+    @RequestMapping("selectorChePai")
+    public List<Car> selectorChePai(String carBrand,String carCompany){
+        return carServiceImpl.selectorChePai(carBrand,carCompany);
     }
 
 

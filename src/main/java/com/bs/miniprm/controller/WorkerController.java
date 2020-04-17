@@ -38,7 +38,6 @@ public class WorkerController {
     @RequestMapping("selectorEqTech")
     public List<Worker> selectEqTech(Integer number,String name){
         List<Worker> eqTechs = workerServiceImpl.selectEqTech(number, name);
-
         return eqTechs;
     }
 
