@@ -26,4 +26,43 @@ public interface WorkerService {
      */
     int update(Worker worker);
 
+    /**
+     * 条件查询装备技师
+     * @param number
+     * @param name
+     * @return
+     */
+    List<Worker> selectEqTech(Integer number,String name);
+
+    /**
+     * 条件查询质检员
+     * @param number
+     * @param name
+     * @return
+     */
+    List<Worker> selectIns(Integer number,String name);
+
+    /**
+     * 增加
+     * @param worker
+     * @return
+     */
+    int add(Worker worker);
+
+    /**
+     * 根据id 查询
+     * @param id
+     * @return
+     */
+    Worker queryById(int id);
+
+    /**
+     * 根据id删除
+     * @param id
+     * @return
+     */
+    int delete(int id);
+
+
+
 }
