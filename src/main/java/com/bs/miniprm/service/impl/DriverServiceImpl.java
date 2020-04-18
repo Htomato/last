@@ -2,7 +2,6 @@ package com.bs.miniprm.service.impl;
 
 
 import com.bs.miniprm.mapper.DriverMapper;
-import com.bs.miniprm.mapper.MenuMapper;
 import com.bs.miniprm.pojo.Driver;
 import com.bs.miniprm.service.DriverService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -66,4 +65,152 @@ public class DriverServiceImpl implements DriverService {
         return drivers;
     }
 
+    /**
+     * 添加驾驶员
+     *
+     * @param driver
+     * @return
+     */
+    @Override
+    public int add(Driver driver) {
+        return driverMapper.insertSelective(driver);
+    }
+
+    /**
+     * 人员信息条件查询
+     *
+     * @param driverName
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    @Override
+    public List<Driver> selectorPerson(String driverName, String licenseType, String driverCompany) {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        if (!"".equals(driverName)){
+
+            driverExampleCriteria.andEqualTo("driverName",driverName);
+
+        }else if (!"".equals(licenseType) && !"".equals(driverCompany)){
+
+            driverExampleCriteria.andEqualTo("licenseType",licenseType)
+                                .andEqualTo("driverCompany",driverCompany);
+
+        }else if (!"".equals(licenseType)){
+            driverExampleCriteria.andEqualTo("licenseType",licenseType);
+        }else {
+            driverExampleCriteria.andEqualTo("driverCompany",driverCompany);
+        }
+        return driverMapper.selectByExample(driverExample);
+    }
+
+    /**
+     * 驾照申请条件查询
+     * @description:
+     * @param driverName
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    @Override
+    public List<Driver> selectorAppli(String driverName, String licenseType, String driverCompany) {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        driverExampleCriteria.andEqualTo("licenseStatus",0);
+        if (!"".equals(driverName)){
+
+            driverExampleCriteria.andEqualTo("driverName",driverName);
+
+        }else if (!"".equals(licenseType) && !"".equals(driverCompany)){
+
+            driverExampleCriteria.andEqualTo("licenseType",licenseType)
+                    .andEqualTo("driverCompany",driverCompany);
+
+        }else if (!"".equals(licenseType)){
+            driverExampleCriteria.andEqualTo("licenseType",licenseType);
+        }else {
+            driverExampleCriteria.andEqualTo("driverCompany",driverCompany);
+        }
+        return driverMapper.selectByExample(driverExample);
+    }
+
+    /**
+     * 驾照档案申请条件查询
+     *
+     * @param licenseNumber
+     * @param driverName
+     * @param driverCompany
+     * @return
+     */
+    @Override
+    public List<Driver> selectorFileAppli(String licenseNumber, String driverName, String driverCompany) {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        if (!"".equals(licenseNumber)){
+
+            driverExampleCriteria.andEqualTo("licenseNumber",licenseNumber);
+
+        }else if (!"".equals(driverName) && !"".equals(driverCompany)){
+
+            driverExampleCriteria.andEqualTo("driverName",driverName)
+                    .andEqualTo("driverCompany",driverCompany);
+
+        }else if (!"".equals(driverName)){
+            driverExampleCriteria.andEqualTo("driverName",driverName);
+        }else {
+            driverExampleCriteria.andEqualTo("driverCompany",driverCompany);
+        }
+        return driverMapper.selectByExample(driverExample);
+    }
+
+    /**
+     * 驾驶员年审条件查询
+     *
+     * @param driverName
+     * @param driverCompany
+     * @return
+     */
+    @Override
+    public List<Driver> selectorReview(String driverName, String driverCompany) {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        driverExampleCriteria.andEqualTo("licenseStatus",1);
+        if (!"".equals(driverName)){
+            driverExampleCriteria.andEqualTo("driverName",driverName);
+        }else {
+            driverExampleCriteria.andEqualTo("driverCompany",driverCompany);
+        }
+        return driverMapper.selectByExample(driverExample);
+    }
+
+    /**
+     * 违章记录条件查询
+     *
+     * @param driverName
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    @Override
+    public List<Driver> selectorVio(String driverName, String licenseType, String driverCompany) {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        driverExampleCriteria.andLessThan("licenseScore",12);
+        if (!"".equals(driverName)){
+
+            driverExampleCriteria.andEqualTo("driverName",driverName);
+
+        }else if (!"".equals(licenseType) && !"".equals(driverCompany)){
+
+            driverExampleCriteria.andEqualTo("licenseType",licenseType)
+                    .andEqualTo("driverCompany",driverCompany);
+
+        }else if (!"".equals(licenseType)){
+            driverExampleCriteria.andEqualTo("licenseType",licenseType);
+        }else {
+            driverExampleCriteria.andEqualTo("driverCompany",driverCompany);
+        }
+        return driverMapper.selectByExample(driverExample);
+    }
 }

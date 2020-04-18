@@ -53,4 +53,54 @@ public interface DriverService {
      */
     List<Driver> vioRecord();
 
+    /**
+     * 添加驾驶员
+     * @param driver
+     * @return
+     */
+    int add(Driver driver);
+
+    /**
+     * 人员信息条件查询
+     * @param driverName
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    List<Driver> selectorPerson(String driverName,String licenseType,String driverCompany);
+    /**
+     * 驾照申请条件查询
+     * @param driverName
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    List<Driver> selectorAppli(String driverName,String licenseType,String driverCompany);
+
+
+    /**
+     * 驾照档案申请条件查询
+     * @param licenseNumber
+     * @param driverName
+     * @param driverCompany
+     * @return
+     */
+    List<Driver> selectorFileAppli(String licenseNumber,String driverName,String driverCompany);
+
+    /**
+     * 驾驶员年审条件查询
+     * @param driverName
+     * @param driverCompany
+     * @return
+     */
+    List<Driver> selectorReview(String driverName,String driverCompany);
+
+    /**
+     * 违章记录条件查询
+     * @param driverName
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    List<Driver> selectorVio(String driverName,String licenseType,String driverCompany);
 }

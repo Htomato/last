@@ -165,6 +165,7 @@ public class CarController {
     public int changeHeadRev(int id){
         return carServiceImpl.changeReview(id);
     }
+
     @RequestMapping("selectorFire")
     public List<Car> selectorFire(String carLicenseplate,String headName){
         return carServiceImpl.selectorFire(carLicenseplate,headName);
@@ -177,6 +178,21 @@ public class CarController {
     public List<Car> selectorChePai(String carBrand,String carCompany){
         return carServiceImpl.selectorChePai(carBrand,carCompany);
     }
+    @RequestMapping("selectorChFile")
+    public List<Car> selectorChFile(String carLicenseplateold,String carLicenseplate,String headName){
+        return carServiceImpl.selectorChFile(carLicenseplateold,carLicenseplate,headName);
+    }
+
+    @RequestMapping("selectorCarReview")
+    public List<Car> selectorCarReview(String carLicenseplate,String carCompany,String headName){
+        return carServiceImpl.selectorCarReview(carLicenseplate,carCompany,headName);
+    }
+
+    @RequestMapping("selectorReview")
+    public List<Car> selectorReview(String carLicenseplate,String carCompany,String headName){
+        return carServiceImpl.selectorReview(carLicenseplate,carCompany,headName);
+    }
+
 
 
 

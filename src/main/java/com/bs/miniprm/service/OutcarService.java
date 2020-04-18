@@ -25,4 +25,19 @@ public interface OutcarService {
      */
     int add(Outcar outcar);
 
+    /**
+     * 外来车辆出去
+     * @param id
+     * @return
+     */
+    int out(int id);
+
+    /**
+     * 队内车辆的条件查询
+     * @param outcarDriver
+     * @param outcarLicense
+     * @return
+     */
+    List<Outcar> selector(String outcarDriver,String outcarLicense);
+
 }

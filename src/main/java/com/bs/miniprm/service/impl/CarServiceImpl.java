@@ -152,4 +152,56 @@ public class CarServiceImpl implements CarService {
         List<Car> carList = carMapper.selectByExample(carExample);
         return carList;
     }
+
+    @Override
+    public List<Car> selectorChFile(String carLicenseplateold, String carLicenseplate, String headName) {
+        Example carExample = new Example(Car.class);
+        if (carLicenseplateold != ""){
+            carExample.createCriteria().andEqualTo("carLicenseplateold",carLicenseplateold);
+        }else if (carLicenseplate != "" && headName != ""){
+            carExample.createCriteria().andEqualTo("carLicenseplate",carLicenseplate)
+                    .andEqualTo("headName",headName);
+        }else if (carLicenseplate != ""){
+            carExample.createCriteria().andEqualTo("carLicenseplate",carLicenseplate);
+        }else {
+            carExample.createCriteria().andEqualTo("headName",headName);
+        }
+        return carMapper.selectByExample(carExample);
+    }
+
+    @Override
+    public List<Car> selectorCarReview(String carLicenseplate, String carCompany, String headName) {
+        Example carExample = new Example(Car.class);
+        Example.Criteria carExampleCriteria = carExample.createCriteria();
+        carExampleCriteria.andEqualTo("review",0);
+        if (carLicenseplate != ""){
+            carExampleCriteria.andEqualTo("carLicenseplate",carLicenseplate);
+        }else if (carCompany != "" && headName != ""){
+            carExampleCriteria.andEqualTo("carCompany",carCompany)
+                    .andEqualTo("headName",headName);
+        }else if (carCompany != ""){
+            carExampleCriteria.andEqualTo("carCompany",carCompany);
+        }else {
+            carExampleCriteria.andEqualTo("headName",headName);
+        }
+        return carMapper.selectByExample(carExample);
+    }
+
+    @Override
+    public List<Car> selectorReview(String carLicenseplate, String carCompany, String headName) {
+        Example carExample = new Example(Car.class);
+        Example.Criteria carExampleCriteria = carExample.createCriteria();
+        carExampleCriteria.andEqualTo("carReview",0);
+        if (carLicenseplate != ""){
+            carExampleCriteria.andEqualTo("carLicenseplate",carLicenseplate);
+        }else if (carCompany != "" && headName != ""){
+            carExampleCriteria.andEqualTo("carCompany",carCompany)
+                    .andEqualTo("headName",headName);
+        }else if (carCompany != ""){
+            carExampleCriteria.andEqualTo("carCompany",carCompany);
+        }else {
+            carExampleCriteria.andEqualTo("headName",headName);
+        }
+        return carMapper.selectByExample(carExample);
+    }
 }

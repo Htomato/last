@@ -102,6 +102,33 @@ public interface CarService {
      */
     List<Car> selectorChePai(String carBrand,String carCompany);
 
+    /**
+     * 条件查询车牌变更
+     * @param carLicenseplateold
+     * @param carLicenseplate
+     * @param headName
+     * @return
+     */
+    List<Car> selectorChFile(String carLicenseplateold,String carLicenseplate,String headName);
+
+
+    /**
+     * 主管单位年审 条件查询
+     * @param carLicenseplate
+     * @param headCompany
+     * @param headName
+     * @return
+     */
+    List<Car> selectorCarReview(String carLicenseplate,String headCompany,String headName);
+
+    /**
+     * 主管单位年审 条件查询
+     * @param carLicenseplate
+     * @param headCompany
+     * @param headName
+     * @return
+     */
+    List<Car> selectorReview(String carLicenseplate,String headCompany,String headName);
 
 
 
@@ -110,4 +137,6 @@ public interface CarService {
 
 
 
-}
+
+
+    }

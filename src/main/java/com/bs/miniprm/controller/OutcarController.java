@@ -36,7 +36,14 @@ public class OutcarController {
         Outcar outcar = outcarJson.toJavaObject(Outcar.class);
         outcar.setOutcarStatus(1);
         outcar.setOutcarIntime(new Date());
-
         return outcarServiceImpl.add(outcar);
+    }
+    @RequestMapping("out")
+    public int out(int id){
+        return outcarServiceImpl.out(id);
+    }
+    @RequestMapping("selector")
+    public Object selector(String outcarDriver, String outcarLicense){
+        return outcarServiceImpl.selector(outcarDriver, outcarLicense);
     }
 }
