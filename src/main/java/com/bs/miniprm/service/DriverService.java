@@ -103,4 +103,19 @@ public interface DriverService {
      * @return
      */
     List<Driver> selectorVio(String driverName,String licenseType,String driverCompany);
+
+    /**
+     * 查询下级上报驾驶员：①下级单位 ② 新添加驾驶员
+     * @return
+     */
+    List<Driver> under();
+
+    /**
+     * 下级上报申请 条件查询
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    List<Driver> selectorUnder(String licenseType, String driverCompany );
+
 }

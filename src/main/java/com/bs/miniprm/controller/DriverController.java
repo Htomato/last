@@ -108,6 +108,14 @@ public class DriverController {
     public Object selectorVio(String driverName,String licenseType,String driverCompany){
         return driverServiceImpl.selectorVio(driverName,licenseType, driverCompany);
     }
+    @RequestMapping("under")
+    public Object under(){
+        return driverServiceImpl.under();
+    }
+    @RequestMapping("selectorUnder")
+    public Object selectorUnder(String licenseType, String driverCompany){
+        return driverServiceImpl.selectorUnder(licenseType,driverCompany);
+    }
 
 
 

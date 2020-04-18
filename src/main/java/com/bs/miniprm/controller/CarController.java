@@ -193,6 +193,16 @@ public class CarController {
         return carServiceImpl.selectorReview(carLicenseplate,carCompany,headName);
     }
 
+    @RequestMapping("under")
+    public Object under(){
+        return carServiceImpl.under();
+    }
+    @RequestMapping("selectorUnder")
+    public Object selectorUnder(String carCategory, String carCompany){
+
+        return carServiceImpl.selectorUnder(carCategory,carCompany);
+    }
+
 
 
 

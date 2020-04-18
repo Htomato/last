@@ -213,4 +213,40 @@ public class DriverServiceImpl implements DriverService {
         }
         return driverMapper.selectByExample(driverExample);
     }
+
+    /**
+     * 查询下级上报驾驶员：①下级单位 ② 新添加驾驶员
+     *
+     * @return
+     */
+    @Override
+    public List<Driver> under() {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        driverExampleCriteria.andEqualTo("licenseStatus",0)
+                .andNotEqualTo("driverCompany","消防总队");
+        List<Driver> driverList = driverMapper.selectByExample(driverExample);
+        return driverList;
+    }
+
+    /**
+     * 下级上报申请 条件查询
+     *
+     * @param licenseType
+     * @param driverCompany
+     * @return
+     */
+    @Override
+    public List<Driver> selectorUnder(String licenseType, String driverCompany) {
+        Example driverExample = new Example(Driver.class);
+        Example.Criteria driverExampleCriteria = driverExample.createCriteria();
+        driverExampleCriteria.andEqualTo("licenseStatus",0)
+                .andNotEqualTo("driverCompany","消防总队");
+        if (!"".equals(licenseType)){
+            driverExampleCriteria.andEqualTo("licenseType",licenseType);
+        }else {
+            driverExampleCriteria.andEqualTo("driverCompany",driverCompany);
+        }
+        return driverMapper.selectByExample(driverExample);
+    }
 }

@@ -204,4 +204,42 @@ public class CarServiceImpl implements CarService {
         }
         return carMapper.selectByExample(carExample);
     }
+
+    /**
+     * 查询下级上报车辆：①下级单位 ② 新添加车辆
+     *
+     * @return
+     */
+    @Override
+    public List<Car> under() {
+        Example carExample = new Example(Car.class);
+        Example.Criteria carExampleCriteria = carExample.createCriteria();
+        carExampleCriteria.andEqualTo("carLicenseplatestatus",0)
+                .andNotEqualTo("carCompany","消防总队");
+        List<Car> carList = carMapper.selectByExample(carExample);
+        return carList;
+    }
+
+    /**
+     * 下级上报申请 条件查询
+     *
+     * @param carCategory
+     * @param carCompany
+     * @return
+     */
+    @Override
+    public List<Car> selectorUnder(String carCategory, String carCompany) {
+        Example carExample = new Example(Car.class);
+        Example.Criteria carExampleCriteria = carExample.createCriteria();
+        carExampleCriteria.andEqualTo("carLicenseplatestatus",0)
+                            .andNotEqualTo("carCompany","消防总队");
+
+        if (carCategory != ""){
+            carExampleCriteria.andEqualTo("carCategory",carCategory);
+        }else {
+            carExampleCriteria.andEqualTo("carCompany",carCompany);
+        }
+        List<Car> carList = carMapper.selectByExample(carExample);
+        return carList;
+    }
 }

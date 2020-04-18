@@ -130,6 +130,19 @@ public interface CarService {
      */
     List<Car> selectorReview(String carLicenseplate,String headCompany,String headName);
 
+    /**
+     * 查询下级上报车辆：①下级单位 ② 新添加车辆
+     * @return
+     */
+    List<Car> under();
+
+    /**
+     * 下级上报申请 条件查询
+     * @param carCategory
+     * @param carCompany
+     * @return
+     */
+    List<Car> selectorUnder(String carCategory, String carCompany );
 
 
 
