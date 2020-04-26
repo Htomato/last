@@ -51,7 +51,7 @@ public class WorkerController {
     public int add(String data){
         JSONObject workerJson = (JSONObject)JSON.parse(data);
         Worker worker = workerJson.toJavaObject(Worker.class);
-        worker.setWorkerStatus(1);
+        worker.setWorkerStatus(0);
 
         return workerServiceImpl.add(worker);
     }

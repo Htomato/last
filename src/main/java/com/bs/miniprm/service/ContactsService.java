@@ -35,4 +35,18 @@ public interface ContactsService {
      * @return
      */
     List<Contacts> queryByName(String name);
+
+    /**
+     * 根据id查询
+     * @param id
+     * @return
+     */
+    Contacts queryById(int id);
+
+    /**
+     * 更新
+     * @param contacts
+     * @return
+     */
+    int update(Contacts contacts);
 }

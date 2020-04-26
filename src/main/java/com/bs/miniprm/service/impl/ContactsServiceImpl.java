@@ -50,4 +50,25 @@ public class ContactsServiceImpl implements ContactsService {
         return contacts;
     }
 
+    /**
+     * 根据id查询
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public Contacts queryById(int id) {
+        return contactsMapper.selectByPrimaryKey(id);
+    }
+
+    /**
+     * 更新
+     *
+     * @param contacts
+     * @return
+     */
+    @Override
+    public int update(Contacts contacts) {
+        return contactsMapper.updateByPrimaryKeySelective(contacts);
+    }
 }

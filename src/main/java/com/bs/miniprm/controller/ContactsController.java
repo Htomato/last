@@ -96,6 +96,20 @@ public class ContactsController {
     public int delete(int id){
         return contactsServiceImpl.delete(id);
     }
+    @RequestMapping("selectOne")
+    public Contacts selectById(int id){
+        return contactsServiceImpl.queryById(id);
+    }
+    @RequestMapping("update")
+    public int update(String data){
+//      将JSON Str 转化成JSONObj
+        JSONObject contactJson = (JSONObject) JSON.parse(data);
+//      make the jsonObj to javaBean
+        Contacts contact = contactJson.toJavaObject(Contacts.class);
+        int addStatus = contactsServiceImpl.update(contact);
+        return addStatus;
+    }
+
     @RequestMapping("search")
     public Object search(String name){
         List<Contacts> contacts = contactsServiceImpl.queryByName(name);
