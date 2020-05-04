@@ -1,5 +1,7 @@
 package com.bs.miniprm.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.bs.miniprm.pojo.Trman;
 import com.bs.miniprm.service.impl.TrmanServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +32,18 @@ public class TrmanController {
     @RequestMapping("selector")
     public List<Trman> select(Integer number,String name){
         return trmanServiceImpl.selector(number,name);
+    }
+    @RequestMapping("add")
+    public int add(String data){
+        JSONObject trmanJson = (JSONObject) JSON.parse(data);
+        Trman trman = trmanJson.toJavaObject(Trman.class);
+        System.out.println("driver = " + trman);
+
+        return trmanServiceImpl.add(trman);
+    }
+    @RequestMapping("delete")
+    public int delete(int id){
+        return trmanServiceImpl.delete(id);
     }
 
 }

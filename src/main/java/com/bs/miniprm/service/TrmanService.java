@@ -21,4 +21,18 @@ public interface TrmanService {
      * @return
      */
     List<Trman> selector(Integer number,String name);
+
+    /**
+     * 添加
+     * @param trman
+     * @return
+     */
+    int add(Trman trman);
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    int delete(int id);
 }

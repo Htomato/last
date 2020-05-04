@@ -48,4 +48,11 @@ public interface EqexpertService {
      * @return
      */
     List<Eqexpert> selector(Integer number,String name);
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    int delete(int id);
 }

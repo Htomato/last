@@ -74,4 +74,9 @@ public class TraorgController {
         return traorg;
     }
 
+    @RequestMapping("delete")
+    public int delete(int id){
+        return traorgServiceImpl.delete(id);
+    }
+
 }

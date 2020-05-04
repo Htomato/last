@@ -40,4 +40,12 @@ public interface OutcarService {
      */
     List<Outcar> selector(String outcarDriver,String outcarLicense);
 
+    /**
+     * 队内车辆的条件查询
+     * @param outcarDriver
+     * @param outcarLicense
+     * @return
+     */
+    List<Outcar> selectorAll(String outcarDriver,String outcarLicense);
+
 }

@@ -9,5 +9,6 @@
     <result column="trOrg" property="trorg" jdbcType="VARCHAR" />
     <result column="trPlanType" property="trplantype" jdbcType="VARCHAR" />
     <result column="trPlanContent" property="trplancontent" jdbcType="LONGVARCHAR" />
+    <result column="trPlanGoal" property="trplangoal" jdbcType="LONGVARCHAR" />
   </resultMap>
 </mapper>

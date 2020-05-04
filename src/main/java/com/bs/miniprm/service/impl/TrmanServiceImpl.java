@@ -20,6 +20,28 @@ public class TrmanServiceImpl implements TrmanService {
         return trmanMapper.selectAll();
     }
 
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int delete(int id) {
+        return trmanMapper.deleteByPrimaryKey(id);
+    }
+
+    /**
+     * 添加
+     *
+     * @param trman
+     * @return
+     */
+    @Override
+    public int add(Trman trman) {
+        return trmanMapper.insertSelective(trman);
+    }
+
     @Override
     public List<Trman> selector(Integer number, String name) {
         if (number != null){

@@ -25,10 +25,16 @@ public class OutcarController {
 
 
     @RequestMapping("in")
-    public Object all(){
+    public Object in(){
         List<Outcar> outcars = outcarServiceImpl.queryIn();
         return outcars;
     }
+    @RequestMapping("all")
+    public Object all(){
+        List<Outcar> outcars = outcarServiceImpl.queryAll();
+        return outcars;
+    }
+
     @RequestMapping("add")
     public int add(String data){
         System.out.println("data = " + data);
@@ -45,5 +51,9 @@ public class OutcarController {
     @RequestMapping("selector")
     public Object selector(String outcarDriver, String outcarLicense){
         return outcarServiceImpl.selector(outcarDriver, outcarLicense);
+    }
+    @RequestMapping("selectorAll")
+    public Object selectorAll(String outcarDriver, String outcarLicense){
+        return outcarServiceImpl.selectorAll(outcarDriver, outcarLicense);
     }
 }

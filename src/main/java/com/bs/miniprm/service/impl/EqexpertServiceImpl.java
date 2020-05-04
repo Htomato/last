@@ -45,6 +45,17 @@ public class EqexpertServiceImpl implements EqexpertService {
         return eqexpertMapper.updateByPrimaryKeySelective(eqexpert);
     }
 
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int delete(int id) {
+        return eqexpertMapper.deleteByPrimaryKey(id);
+    }
+
     @Override
     public List<Eqexpert> selector(Integer number, String name) {
         if (number != null){

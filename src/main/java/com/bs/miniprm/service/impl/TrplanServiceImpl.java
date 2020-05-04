@@ -23,6 +23,17 @@ public class TrplanServiceImpl implements TrplanService {
         return trplans;
     }
 
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int delete(int id) {
+        return trplanMapper.deleteByPrimaryKey(id);
+    }
+
     @Override
     public int add(Trplan trplan) {
         return trplanMapper.insert(trplan);

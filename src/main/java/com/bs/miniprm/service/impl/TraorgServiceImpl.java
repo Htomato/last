@@ -55,6 +55,17 @@ public class TraorgServiceImpl implements TraorgService {
         }
     }
 
+    /**
+     * 删除
+     *
+     * @param id
+     * @return
+     */
+    @Override
+    public int delete(int id) {
+        return traorgMapper.deleteByPrimaryKey(id);
+    }
+
     @Override
     public List<Traorg> selectorUnReview(Integer number, String name) {
         if (number != null){

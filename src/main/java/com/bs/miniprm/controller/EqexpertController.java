@@ -131,4 +131,9 @@ public class EqexpertController {
         return eqexpertServiceImpl.selector(number,name);
     }
 
+    @RequestMapping("delete")
+    public int delete(int id){
+        return eqexpertServiceImpl.delete(id);
+    }
+
 }

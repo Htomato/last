@@ -3,6 +3,7 @@ package com.bs.miniprm.controller;
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.bs.miniprm.pojo.Trplan;
+import com.bs.miniprm.pojo.Worker;
 import com.bs.miniprm.service.impl.TrplanServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -41,5 +42,12 @@ public class TrplanController {
         System.out.println("trplantype = " + trplantype);
         return trplanServiceImpl.selector(number,name,trplantype);
     }
+
+    @RequestMapping("delete")
+    public int delete(int id){
+        return trplanServiceImpl.delete(id);
+    }
+
+
 
 }

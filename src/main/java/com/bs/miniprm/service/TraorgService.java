@@ -54,4 +54,11 @@ public interface TraorgService {
      * @return
      */
     int add(Traorg traorg);
+
+    /**
+     * 删除
+     * @param id
+     * @return
+     */
+    int delete(int id);
 }

@@ -29,6 +29,14 @@ public class Trplan {
     @Column(name = "trPlanContent")
     private String trplancontent;
 
+
+
+    /**
+     * 培训方案目的
+     */
+    @Column(name = "trPlanGoal")
+    private String trplangoal;
+
     /**
      * 获取培训方案ID
      *
@@ -99,5 +107,13 @@ public class Trplan {
      */
     public void setTrplancontent(String trplancontent) {
         this.trplancontent = trplancontent;
+    }
+
+    public String getTrplangoal() {
+        return trplangoal;
+    }
+
+    public void setTrplangoal(String trplangoal) {
+        this.trplangoal = trplangoal;
     }
 }

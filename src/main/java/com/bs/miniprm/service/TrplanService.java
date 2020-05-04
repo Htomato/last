@@ -19,6 +19,13 @@ public interface TrplanService {
     int add(Trplan trplan);
 
     /**
+     * 删除
+     * @param id
+     * @return
+     */
+    int delete(int id);
+
+    /**
      * 条件查询
      * @param number
      * @param name
@@ -26,5 +33,7 @@ public interface TrplanService {
      * @return
      */
     List<Trplan> selector(Integer number,String name,String trplantype);
+
+
 
 }

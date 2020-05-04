@@ -69,4 +69,23 @@ public class OutcarServiceImpl implements OutcarService {
         }
         return outcarMapper.selectByExample(outCarExample);
     }
+
+    /**
+     * 队内车辆的条件查询
+     *
+     * @param outcarDriver
+     * @param outcarLicense
+     * @return
+     */
+    @Override
+    public List<Outcar> selectorAll(String outcarDriver, String outcarLicense) {
+        Example outCarExample = new Example(Outcar.class);
+        Example.Criteria carExampleCriteria = outCarExample.createCriteria();
+        if (!"".equals(outcarDriver)){
+            carExampleCriteria.andEqualTo("outcarDriver",outcarDriver);
+        }else {
+            carExampleCriteria.andEqualTo("outcarLicense",outcarLicense);
+        }
+        return outcarMapper.selectByExample(outCarExample);
+    }
 }
